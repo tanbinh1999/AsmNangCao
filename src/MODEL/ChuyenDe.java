@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MODEL;
 
-/**
- *
- * @author tanbinh
- */
 public class ChuyenDe {
+
     private String maCD;
     private String tenCD;
     private double hocPhi;
@@ -21,7 +13,6 @@ public class ChuyenDe {
     public String toString() {
         return "ChuyenDe{" + "maCD=" + maCD + ", tenCD=" + tenCD + ", hocPhi=" + hocPhi + ", thoiLuong=" + thoiLuong + ", hinh=" + hinh + ", moTa=" + moTa + '}';
     }
-   
 
     public String getMaCD() {
         return maCD;

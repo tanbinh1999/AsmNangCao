@@ -1,18 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MODEL;
+
 import HELPER.DateHelper;
 import java.util.Date;
 
-/**
- *
- * @author tanbinh
- */
 public class KhoaHoc {
-     private int maKH;
+
+    private int maKH;
     private String maCD;
     private double hocPhi;
     private int thoiLuong;
@@ -23,7 +16,7 @@ public class KhoaHoc {
 
     @Override
     public String toString() {
-        return this.maCD + "("+this.ngayKG+")";
+        return this.maCD + "(" + this.ngayKG + ")";
     }
 
     public int getMaKH() {
