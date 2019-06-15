@@ -1,0 +1,7 @@
+﻿Truớc khi làm : 
+	git pull origin master
+Làm xong up lên : 
+	git add . 
+	git pull origin master
+	git commit -m "tên"
+	git push -f origin master
