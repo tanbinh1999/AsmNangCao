@@ -6,36 +6,38 @@
 package MODEL;
 
 import java.util.Date;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import static org.testng.Assert.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  *
  * @author ➻❥ ๖Kɦaї Ꮭε ๖➻❥
  */
-public class KhoaHocTest {
+@PrepareForTest( { KhoaHoc.class})
+public class KhoaHocNGTest {
     
-    public KhoaHocTest() {
+    public KhoaHocNGTest() {
     }
-    
+
     @BeforeClass
-    public static void setUpClass() {
+    public static void setUpClass() throws Exception {
     }
-    
+
     @AfterClass
-    public static void tearDownClass() {
+    public static void tearDownClass() throws Exception {
     }
-    
-    @Before
-    public void setUp() {
+
+    @BeforeMethod
+    public void setUpMethod() throws Exception {
     }
-    
-    @After
-    public void tearDown() {
+
+    @AfterMethod
+    public void tearDownMethod() throws Exception {
     }
 
     /**
@@ -43,12 +45,12 @@ public class KhoaHocTest {
      */
     @Test
     public void testToString() {
-        System.out.println("testToString");
+        System.out.println("toString");
         KhoaHoc instance = new KhoaHoc();
         String expResult = null;
         String result = instance.toString();
-        assertEquals(expResult, result);
-
+        assertEquals(result, expResult);
+  
     }
 
     /**
@@ -120,14 +122,14 @@ public class KhoaHocTest {
 
     }
 
-//    @Test
-//    public void testSetMaCDfail() {
-//        System.out.println("setMaCD fail");
-//        String maCD = "";
-//        KhoaHoc instance = new KhoaHoc();
-//        instance.setMaCD(maCD);
-//
-//    }
+    @Test
+    public void testSetMaCDfail() {
+        System.out.println("setMaCD fail");
+        String maCD = null;
+        KhoaHoc instance = new KhoaHoc();
+        instance.setMaCD(maCD);
+
+    }
 
     /**
      * Test of getHocPhi method, of class KhoaHoc.
@@ -232,14 +234,14 @@ public class KhoaHocTest {
 
     }
 
-//    @Test
-//    public void testSetGhiChufail() {
-//        System.out.println("setGhiChu");
-//        String ghiChu = null;
-//        KhoaHoc instance = new KhoaHoc();
-//        instance.setGhiChu(ghiChu);
-//
-//    }
+    @Test
+    public void testSetGhiChufail() {
+        System.out.println("setGhiChu");
+        String ghiChu = null;
+        KhoaHoc instance = new KhoaHoc();
+        instance.setGhiChu(ghiChu);
+
+    }
 
     /**
      * Test of getMaNV method, of class KhoaHoc.
@@ -276,14 +278,14 @@ public class KhoaHocTest {
 
     }
 
-//    @Test
-//    public void testSetMaNVfail() {
-//        System.out.println("setMaNV fail");
-//        String maNV = null;
-//        KhoaHoc instance = new KhoaHoc();
-//        instance.setMaNV(maNV);
-//
-//    }
+    @Test
+    public void testSetMaNVfail() {
+        System.out.println("setMaNV fail");
+        String maNV = null;
+        KhoaHoc instance = new KhoaHoc();
+        instance.setMaNV(maNV);
+
+    }
 
     /**
      * Test of getNgayTao method, of class KhoaHoc.
