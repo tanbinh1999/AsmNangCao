@@ -81,8 +81,8 @@ public class NguoiHoc {
     }
 
     public void setGhiChu(String ghiChu) {
-        if(ghiChu == null)
-            throw  new NullPointerException();
+//        if(ghiChu == null)
+//            throw  new NullPointerException();
         this.ghiChu = ghiChu;
     }
 

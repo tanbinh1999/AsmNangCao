@@ -4,12 +4,20 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/E:/HK%20VI/AsmNangCao/test/MODEL/KhoaHocNGTest.java</file>
             <file>file:/E:/HK%20VI/AsmNangCao/test/MODEL/KhoaHocTest.java</file>
 =======
             <file>file:/D:/Ky_6/SOF304/AsmNangCao/test/DAO/NguoiHocDAOTest.java</file>
             <file>file:/D:/Ky_6/SOF304/AsmNangCao/test/DAO/ChuyenDeDAOTest.java</file>
 >>>>>>> 75f06d55ae0f46a99804ada4ea40b83c612f3d06
+=======
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/PolyPro/src/DAO/ThongKeDAO.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/PolyPro/test/DAO/ThongKeDAONGTest.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/PolyPro/test/MODEL/NguoiHocTest.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/PolyPro/test/DAO/NguoiHocDAOTest.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/PolyPro/test/DAO/NguoiHocDAONGTest.java</file>
+>>>>>>> f5a1b30e3df7d8d8b26018f9b0048a175604d684
         </group>
     </open-files>
 </project-private>
