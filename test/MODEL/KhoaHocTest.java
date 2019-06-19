@@ -18,22 +18,22 @@ import static org.junit.Assert.*;
  * @author ➻❥ ๖Kɦaї Ꮭε ๖➻❥
  */
 public class KhoaHocTest {
-    
+
     public KhoaHocTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -64,7 +64,7 @@ public class KhoaHocTest {
 
     }
 
-    @Test
+    @Test(expected = AssertionError.class)
     public void testGetMaKHfail() { //does not exist
         System.out.println("getMaKH fail");
         KhoaHoc instance = new KhoaHoc();
@@ -98,7 +98,7 @@ public class KhoaHocTest {
 
     }
 
-    @Test
+    @Test(expected = AssertionError.class)
     public void testGetMaCDfail() {
         System.out.println("getMaCD fail");
         KhoaHoc instance = new KhoaHoc();
@@ -120,15 +120,6 @@ public class KhoaHocTest {
 
     }
 
-//    @Test
-//    public void testSetMaCDfail() {
-//        System.out.println("setMaCD fail");
-//        String maCD = "";
-//        KhoaHoc instance = new KhoaHoc();
-//        instance.setMaCD(maCD);
-//
-//    }
-
     /**
      * Test of getHocPhi method, of class KhoaHoc.
      */
@@ -141,7 +132,6 @@ public class KhoaHocTest {
         assertEquals(expResult, result, 0.0);
 
     }
-
 
     /**
      * Test of setHocPhi method, of class KhoaHoc.
@@ -162,12 +152,21 @@ public class KhoaHocTest {
     public void testGetThoiLuong() {
         System.out.println("getThoiLuong");
         KhoaHoc instance = new KhoaHoc();
-        int expResult = 10;
+        int expResult = 0;
         int result = instance.getThoiLuong();
         assertEquals(expResult, result);
 
     }
 
+    @Test(expected = AssertionError.class)
+    public void testGetThoiLuongfail() {
+        System.out.println("getThoiLuong fail");
+        KhoaHoc instance = new KhoaHoc();
+        int expResult = 10;
+        int result = instance.getThoiLuong();
+        assertEquals(expResult, result);
+
+    }
 
     /**
      * Test of setThoiLuong method, of class KhoaHoc.
@@ -178,9 +177,7 @@ public class KhoaHocTest {
         int thoiLuong = 10;
         KhoaHoc instance = new KhoaHoc();
         instance.setThoiLuong(thoiLuong);
-
     }
-
 
     /**
      * Test of getNgayKG method, of class KhoaHoc.
@@ -210,6 +207,16 @@ public class KhoaHocTest {
      * Test of getGhiChu method, of class KhoaHoc.
      */
     @Test
+    public void testGetGhiChu() {
+        System.out.println("getGhiChu");
+        KhoaHoc instance = new KhoaHoc();
+        String expResult = null;
+        String result = instance.getGhiChu();
+        assertEquals(expResult, result);
+
+    }
+
+    @Test(expected = AssertionError.class)
     public void testGetGhiChufail() {
         System.out.println("getGhiChu fail");
         KhoaHoc instance = new KhoaHoc();
@@ -218,7 +225,6 @@ public class KhoaHocTest {
         assertEquals(expResult, result);
 
     }
-
 
     /**
      * Test of setGhiChu method, of class KhoaHoc.
@@ -240,7 +246,6 @@ public class KhoaHocTest {
 //        instance.setGhiChu(ghiChu);
 //
 //    }
-
     /**
      * Test of getMaNV method, of class KhoaHoc.
      */
@@ -254,7 +259,7 @@ public class KhoaHocTest {
 
     }
 
-    @Test
+    @Test(expected = AssertionError.class)
     public void testGetMaNVfail() {
         System.out.println("getMaNV fail");
         KhoaHoc instance = new KhoaHoc();
@@ -284,7 +289,6 @@ public class KhoaHocTest {
 //        instance.setMaNV(maNV);
 //
 //    }
-
     /**
      * Test of getNgayTao method, of class KhoaHoc.
      */
@@ -298,7 +302,7 @@ public class KhoaHocTest {
 
     }
 
-    @Test
+    @Test(expected = AssertionError.class)
     public void testGetNgayTaofail() {
         System.out.println("getNgayTao fail");
         KhoaHoc instance = new KhoaHoc();
@@ -318,5 +322,5 @@ public class KhoaHocTest {
         KhoaHoc instance = new KhoaHoc();
         instance.setNgayTao(ngayTao);
     }
-    
+
 }
