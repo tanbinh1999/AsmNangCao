@@ -3,13 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/StudyFpoly/K61_KiemThuNangCao_SOF304/AsmGroup/AsmNangCao/test/MODEL/NhanVienTest.java</file>
-            <file>file:/D:/StudyFpoly/K61_KiemThuNangCao_SOF304/AsmGroup/AsmNangCao/src/MODEL/ChuyenDe.java</file>
-            <file>file:/D:/StudyFpoly/K61_KiemThuNangCao_SOF304/AsmGroup/AsmNangCao/test/DAO/NhanVienDAOTest.java</file>
-=======
-            <file>file:/E:/HK%20VI/AsmNangCao/test/MODEL/KhoaHocTest.java</file>
->>>>>>> f7839a684379a06d4cf6aa3d904ee7decd23a484
+            <file>file:/D:/Ky_6/SOF304/AsmNangCao/test/DAO/NguoiHocDAOTest.java</file>
+            <file>file:/D:/Ky_6/SOF304/AsmNangCao/test/DAO/ChuyenDeDAOTest.java</file>
         </group>
     </open-files>
 </project-private>
