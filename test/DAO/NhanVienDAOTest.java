@@ -2,7 +2,9 @@ package DAO;
 
 import HELPER.JDBCHelper;
 import MODEL.NhanVien;
+import java.util.ArrayList;
 import java.util.List;
+import org.hamcrest.CoreMatchers;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -10,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentMatchers;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -43,6 +46,9 @@ public class NhanVienDAOTest {
     public void tearDown() {
     }
 
+    /**
+     * insert
+     */
     @Test
     public void testInsert() {
         System.out.println("insert");
@@ -57,13 +63,9 @@ public class NhanVienDAOTest {
         nhanVienDao.insert(model);
     }
 
-    @Test
-    public void testUpdate() {
-        System.out.println("update");
-        NhanVien model = new NhanVien();
-        nhanVienDao.update(model);
-    }
-
+    /**
+     * update
+     */
     @Test(expected = NullPointerException.class)
     public void testUpdateWithNullModel() {
         System.out.println("update with null model");
@@ -71,8 +73,15 @@ public class NhanVienDAOTest {
         nhanVienDao.update(model);
     }
 
+    @Test
+    public void testUpdate() {
+        System.out.println("update");
+        NhanVien model = new NhanVien();
+        nhanVienDao.update(model);
+    }
+
     /**
-     * Test of delete method, of class NhanVienDAO.
+     * delete
      */
     @Test
     public void testDelete() {
@@ -82,33 +91,53 @@ public class NhanVienDAOTest {
         instance.delete(MaNV);
     }
 
-    @Test
-    public void testSelect_0args() {
-        System.out.println("select");
-        NhanVienDAO instance = new NhanVienDAO();
-        List<NhanVien> expResult = null;
-        List<NhanVien> result = instance.select();
-        assertEquals(expResult, result);
-    }
-
     /**
-     * Test of findByld method, of class NhanVienDAO.
+     * find
      */
     @Test
-    public void testFindByld() {
+    public void testFindByldWithNotFound() throws Exception {
         System.out.println("findByld");
         String manv = "";
-        NhanVienDAO instance = new NhanVienDAO();
+
         NhanVien expResult = null;
-        NhanVien result = instance.findByld(manv);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        List<NhanVien> resultList = new ArrayList<>();
+
+        PowerMockito.doReturn(resultList).when(nhanVienDaoSpy, "select", ArgumentMatchers.anyString(), ArgumentMatchers.any());
+        NhanVien result = nhanVienDaoSpy.findByld(manv);
+        assertEquals(result, CoreMatchers.is(expResult));
+    }
+
+    @Test
+    public void testFindBid() throws Exception {
+        System.out.println("findByid");
+        String manv = "12";
+
+        NhanVien expResult = new NhanVien();
+        List<NhanVien> resultList = new ArrayList<>();
+        resultList.add(expResult);
+
+        PowerMockito.doReturn(resultList).when(nhanVienDaoSpy, "select", ArgumentMatchers.anyString(), ArgumentMatchers.any());
+        NhanVien result = nhanVienDaoSpy.findByld(manv);
+        assertThat(result, CoreMatchers.is(expResult));
     }
 
     /**
-     * Test of select method, of class NhanVienDAO.
+     * Select
      */
+    @Test
+    public void testSelect_0args() throws Exception {
+        System.out.println("select");
+        NhanVien nhanVien = new NhanVien();
+        List<NhanVien> expectedResult = new ArrayList<>();
+
+        expectedResult.add(nhanVien);
+
+        PowerMockito.doReturn(expectedResult).when(nhanVienDaoSpy, "select", ArgumentMatchers.anyString());
+        List<NhanVien> result = nhanVienDaoSpy.select();
+
+        assertThat(result, CoreMatchers.is(expectedResult));
+    }
+
     @Test
     public void testSelect_String_ObjectArr() {
         System.out.println("select");
