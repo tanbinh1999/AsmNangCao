@@ -138,32 +138,28 @@ public class NhanVienDAOTest {
         assertThat(result, CoreMatchers.is(expectedResult));
     }
 
-    @Test
-    public void testSelect_String_ObjectArr() {
-        System.out.println("select");
-        String sql = "";
-        Object[] args = null;
-        NhanVienDAO instance = new NhanVienDAO();
-        List<NhanVien> expResult = null;
-        List<NhanVien> result = instance.select(sql, args);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of checkID method, of class NhanVienDAO.
-     */
-    @Test
-    public void testCheckID() {
-        System.out.println("checkID");
-        String id = "";
-        NhanVienDAO instance = new NhanVienDAO();
-        boolean expResult = false;
-        boolean result = instance.checkID(id);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSelect_String_ObjectArr() {
+//        System.out.println("select");
+//        String sql = "";
+//        Object[] args = null;
+//        NhanVienDAO instance = new NhanVienDAO();
+//        List<NhanVien> expResult = null;
+//        List<NhanVien> result = instance.select(sql, args);
+//        assertEquals(expResult, result);
+//    }
+//
+//    /**
+//     * Test of checkID method, of class NhanVienDAO.
+//     */
+//    @Test
+//    public void testCheckID() {
+//        System.out.println("checkID");
+//        String id = "";
+//        NhanVienDAO instance = new NhanVienDAO();
+//        boolean expResult = false;
+//        boolean result = instance.checkID(id);
+//        assertEquals(expResult, result);
+//    }
 
 }
