@@ -10,48 +10,57 @@ import MODEL.NguoiHoc;
 import java.util.ArrayList;
 import java.util.List;
 import org.hamcrest.CoreMatchers;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.runner.RunWith;
+import static org.hamcrest.MatcherAssert.assertThat;
 import org.mockito.ArgumentMatchers;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+import static org.testng.Assert.*;
+import org.testng.IObjectFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.ObjectFactory;
+import org.testng.annotations.Test;
 
 /**
  *
  * @author tanbinh
  */
-@RunWith(PowerMockRunner.class)
 @PrepareForTest({JDBCHelper.class, NguoiHocDAO.class})
-public class NguoiHocDAOTest {
+public class NguoiHocDAONGTest {
+    
     NguoiHocDAO nguoiHocDAO;
     NguoiHocDAO nguoiHocDAOSpy;
-    
-    @Before
-    public void setUp() {
+    @ObjectFactory
+    public IObjectFactory getObjectFactory() {
+        return new org.powermock.modules.testng.PowerMockObjectFactory();
+    }
+
+    @BeforeMethod
+    public void setUpMethod() throws Exception {
         nguoiHocDAO = new NguoiHocDAO();
         PowerMockito.mockStatic(JDBCHelper.class);
-        nguoiHocDAOSpy = PowerMockito.spy(new NguoiHocDAO());
+        nguoiHocDAO = PowerMockito.spy(new NguoiHocDAO());
     }
+    @AfterMethod
+    public void tearDownMethod() throws Exception {
+        
+    }
+
+    /**
+     * Test of insert method, of class NguoiHocDAO.
+     */
     @Test
     public void testInsert() {
         System.out.println("insert");
-        NguoiHoc model = new NguoiHoc();
-     
-        nguoiHocDAO.insert(model);
+        NguoiHoc nguoiHoc = new NguoiHoc();
+        nguoiHocDAO.insert(nguoiHoc);
     }
     
-    @Test
+    @Test(expectedExceptions = NullPointerException.class)
     public void testInsertWithNullModel(){
-        System.out.println("Insert with null model");
-        NguoiHoc model = null;
-        nguoiHocDAO.insert(model);
-                
+        System.out.println("insert with null model");
+        NguoiHoc nguoiHoc = null;
+        nguoiHocDAO.insert(nguoiHoc);
     }
     /**
      * Test of update method, of class NguoiHocDAO.
@@ -59,15 +68,15 @@ public class NguoiHocDAOTest {
     @Test
     public void testUpdate() {
         System.out.println("update");
-        
         NguoiHoc model = new NguoiHoc();
         nguoiHocDAO.update(model);
     }
-    @Test
+
+    @Test(expectedExceptions = NullPointerException.class)
     public void testUpdateWithNullModel(){
-        System.out.println("update with null model");
-        NguoiHoc model = null;
-        nguoiHocDAO.update(model);
+        System.out.println("");
+        NguoiHoc nguoiHoc = null;
+        nguoiHocDAO.update(nguoiHoc);
     }
     /**
      * Test of delete method, of class NguoiHocDAO.
@@ -75,20 +84,18 @@ public class NguoiHocDAOTest {
     @Test
     public void testDelete() {
         System.out.println("delete");
-        String maNH = "";
-        nguoiHocDAO.delete(maNH);
+        String id = "";
+        nguoiHocDAO.delete(id);
     }
-//    @Test
-//    public void test
 
     /**
      * Test of select method, of class NguoiHocDAO.
      */
     @Test
-    public void testSelect() throws  Exception{
+    public void testSelect() throws Exception{
         System.out.println("select");
         NguoiHoc nguoiHoc = new NguoiHoc();
-        List<NguoiHoc> expResult = new ArrayList<>();
+        List<NguoiHoc>  expResult = new ArrayList<>();
         expResult.add(nguoiHoc);
         PowerMockito.doReturn(expResult).when(nguoiHocDAOSpy, "select", ArgumentMatchers.anyString());
         List<NguoiHoc> result = nguoiHocDAOSpy.select();
@@ -99,14 +106,15 @@ public class NguoiHocDAOTest {
      * Test of selectByKeyword method, of class NguoiHocDAO.
      */
     @Test
-    public void testSelectByKeyword()throws Exception{
+    public void testSelectByKeyword() throws Exception{
         System.out.println("selectByKeyword");
-        NguoiHoc nguoiHoc = new NguoiHoc();
+        String keyword = "";
+        NguoiHoc instance = new NguoiHoc();
         List<NguoiHoc> expResult = new ArrayList<>();
-        expResult.add(nguoiHoc);
-        PowerMockito.doReturn(expResult).when(nguoiHocDAOSpy, "select", ArgumentMatchers.anyString());
-        List<NguoiHoc> result = nguoiHocDAOSpy.select();
-        assertThat( result, CoreMatchers.is(expResult));
+        expResult.add(instance);
+        PowerMockito.doReturn(expResult).when(nguoiHocDAOSpy, "select", ArgumentMatchers.anyString(), ArgumentMatchers.any());
+        List<NguoiHoc> result = nguoiHocDAOSpy.selectByKeyword(keyword);
+        assertThat(result, CoreMatchers.is(expResult));
     }
 
     /**
@@ -115,25 +123,25 @@ public class NguoiHocDAOTest {
     @Test
     public void testSelectByCourse() throws Exception{
         System.out.println("selectByCourse");
-        Integer makh = 45;
+        Integer makh = null;
         NguoiHoc nguoiHoc = new NguoiHoc();
         List<NguoiHoc> expResult = new ArrayList<>();
         expResult.add(nguoiHoc);
-        PowerMockito.doReturn(expResult).when(nguoiHocDAOSpy, "select", ArgumentMatchers.anyString(),ArgumentMatchers.any());
+        PowerMockito.doReturn(expResult).when(nguoiHocDAOSpy, "select", ArgumentMatchers.anyString(), ArgumentMatchers.any());
         List<NguoiHoc> result = nguoiHocDAOSpy.selectByCourse(makh);
-        assertThat( result, CoreMatchers.is(expResult));
+        assertThat(result, CoreMatchers.is(expResult));
     }
 
     /**
      * Test of findById method, of class NguoiHocDAO.
      */
     @Test
-    public void testFindById() throws Exception{
+    public void testFindById() throws  Exception{
         System.out.println("findById");
-        String manh = "d1";
+        String manh = "45";
         NguoiHoc expResult = null;
         List<NguoiHoc> resultList = new ArrayList<>();
-        PowerMockito.doReturn(resultList).when(nguoiHocDAOSpy, "select", ArgumentMatchers.anyString(), ArgumentMatchers.any());
+        PowerMockito.doReturn(expResult).when(nguoiHocDAOSpy, "select", ArgumentMatchers.anyString(), ArgumentMatchers.any());
         NguoiHoc result = nguoiHocDAOSpy.findById(manh);
         assertThat(result, CoreMatchers.is(expResult));
     }
@@ -142,19 +150,18 @@ public class NguoiHocDAOTest {
      * Test of checkID method, of class NguoiHocDAO.
      */
 //    @Test
-//    public void testCheckID() throws Exception{
+//    public void testCheckID() {
 //        System.out.println("checkID");
 //        String id = "";
+//        NguoiHocDAO instance = new NguoiHocDAO();
 //        boolean expResult = false;
-//        List<NguoiHoc> resultList = new ArrayList<>();
-//        PowerMockito.doReturn(expResult).when(nguoiHocDAOSpy, "select", ArgumentMatchers.anyString(), ArgumentMatchers.any());
-//        NguoiHoc result = nguoiHocDAOSpy.checkID(id);
-//        assertEquals(expResult, result);
+//        boolean result = instance.checkID(id);
+//        assertEquals(result, expResult);
 //    }
-
-    /**
-     * Test of checkSDT method, of class NguoiHocDAO.
-     */
+//
+//    /**
+//     * Test of checkSDT method, of class NguoiHocDAO.
+//     */
 //    @Test
 //    public void testCheckSDT() {
 //        System.out.println("checkSDT");
@@ -162,7 +169,7 @@ public class NguoiHocDAOTest {
 //        NguoiHocDAO instance = new NguoiHocDAO();
 //        boolean expResult = false;
 //        boolean result = instance.checkSDT(sodienthoai);
-//        assertEquals(expResult, result);
+//        assertEquals(result, expResult);
 //    }
-//    
+    
 }
