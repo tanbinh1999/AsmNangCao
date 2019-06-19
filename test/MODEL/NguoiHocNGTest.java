@@ -6,37 +6,36 @@
 package MODEL;
 
 import java.util.Date;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.testng.Assert.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  *
  * @author tanbinh
  */
-public class NguoiHocTest {
+public class NguoiHocNGTest {
     
-    public NguoiHocTest() {
-        
+    public NguoiHocNGTest() {
     }
-    
+
     @BeforeClass
-    public static void setUpClass() {
+    public static void setUpClass() throws Exception {
     }
-    
+
     @AfterClass
-    public static void tearDownClass() {
+    public static void tearDownClass() throws Exception {
     }
-    
-    @Before
-    public void setUp() {
+
+    @BeforeMethod
+    public void setUpMethod() throws Exception {
     }
-    
-    @After
-    public void tearDown() {
+
+    @AfterMethod
+    public void tearDownMethod() throws Exception {
     }
 
     /**
@@ -46,9 +45,9 @@ public class NguoiHocTest {
     public void testToString() {
         System.out.println("toString");
         NguoiHoc instance = new NguoiHoc();
-        String expResult = null;
+        String expResult = "";
         String result = instance.toString();
-        assertEquals(expResult, result);
+        assertEquals(result, expResult);
     }
 
     /**
@@ -58,9 +57,9 @@ public class NguoiHocTest {
     public void testGetMaNH() {
         System.out.println("getMaNH");
         NguoiHoc instance = new NguoiHoc();
-        String expResult = null;
+        String expResult = "";
         String result = instance.getMaNH();
-        assertEquals(expResult, result);
+        assertEquals(result, expResult);
     }
 
     /**
@@ -69,7 +68,7 @@ public class NguoiHocTest {
     @Test
     public void testSetMaNH() {
         System.out.println("setMaNH");
-        String maNH = null;
+        String maNH = "";
         NguoiHoc instance = new NguoiHoc();
         instance.setMaNH(maNH);
     }
@@ -81,9 +80,9 @@ public class NguoiHocTest {
     public void testGetHoTen() {
         System.out.println("getHoTen");
         NguoiHoc instance = new NguoiHoc();
-        String expResult = null;
+        String expResult = "";
         String result = instance.getHoTen();
-        assertEquals(expResult, result);
+        assertEquals(result, expResult);
     }
 
     /**
@@ -92,7 +91,7 @@ public class NguoiHocTest {
     @Test
     public void testSetHoTen() {
         System.out.println("setHoTen");
-        String hoTen = null;
+        String hoTen = "";
         NguoiHoc instance = new NguoiHoc();
         instance.setHoTen(hoTen);
     }
@@ -106,7 +105,7 @@ public class NguoiHocTest {
         NguoiHoc instance = new NguoiHoc();
         Date expResult = null;
         Date result = instance.getNgaySinh();
-        assertEquals(expResult, result);
+        assertEquals(result, expResult);
     }
 
     /**
@@ -129,7 +128,7 @@ public class NguoiHocTest {
         NguoiHoc instance = new NguoiHoc();
         boolean expResult = false;
         boolean result = instance.isGioiTinh();
-        assertEquals(expResult, result);
+        assertEquals(result, expResult);
     }
 
     /**
@@ -150,9 +149,9 @@ public class NguoiHocTest {
     public void testGetDienThoai() {
         System.out.println("getDienThoai");
         NguoiHoc instance = new NguoiHoc();
-        String expResult =null;
+        String expResult = "";
         String result = instance.getDienThoai();
-        assertEquals(expResult, result);
+        assertEquals(result, expResult);
     }
 
     /**
@@ -173,9 +172,9 @@ public class NguoiHocTest {
     public void testGetEmail() {
         System.out.println("getEmail");
         NguoiHoc instance = new NguoiHoc();
-        String expResult = null;
+        String expResult = "";
         String result = instance.getEmail();
-        assertEquals(expResult, result);
+        assertEquals(result, expResult);
     }
 
     /**
@@ -196,9 +195,9 @@ public class NguoiHocTest {
     public void testGetGhiChu() {
         System.out.println("getGhiChu");
         NguoiHoc instance = new NguoiHoc();
-        String expResult = null;
+        String expResult = "";
         String result = instance.getGhiChu();
-        assertEquals(expResult, result);
+        assertEquals(result, expResult);
     }
 
     /**
@@ -207,7 +206,7 @@ public class NguoiHocTest {
     @Test
     public void testSetGhiChu() {
         System.out.println("setGhiChu");
-        String ghiChu = null;
+        String ghiChu = "";
         NguoiHoc instance = new NguoiHoc();
         instance.setGhiChu(ghiChu);
     }
@@ -219,9 +218,9 @@ public class NguoiHocTest {
     public void testGetMaNV() {
         System.out.println("getMaNV");
         NguoiHoc instance = new NguoiHoc();
-        String expResult = null;
+        String expResult = "";
         String result = instance.getMaNV();
-        assertEquals(expResult, result);
+        assertEquals(result, expResult);
     }
 
     /**
@@ -242,9 +241,9 @@ public class NguoiHocTest {
     public void testGetNgayDK() {
         System.out.println("getNgayDK");
         NguoiHoc instance = new NguoiHoc();
-        Date expResult = new Date();
+        Date expResult = null;
         Date result = instance.getNgayDK();
-        assertEquals(expResult, result);
+        assertEquals(result, expResult);
     }
 
     /**
